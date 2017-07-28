@@ -2003,18 +2003,6 @@
           "lib/netstandard1.3/NuGet.Frameworks.dll": {}
         }
       },
-      "Pkcs11Interop/3.3.0": {
-        "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.0"
-        },
-        "compile": {
-          "lib/netstandard1.3/Pkcs11Interop.DotNetCore.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Pkcs11Interop.DotNetCore.dll": {}
-        }
-      },
       "Remotion.Linq/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -6013,31 +6001,6 @@
         "lib/netstandard1.3/NuGet.Frameworks.xml",
         "nuget.frameworks.3.5.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
-      ]
-    },
-    "Pkcs11Interop/3.3.0": {
-      "sha512": "54sbDGJ/Ktuyp7+xEweURE8Bi+EN6TQaMthsC7VagT+N6FzP/T5Yrb2ZTh0cyBUX3KE1QVp4pVNznyQpubqs1w==",
-      "type": "package",
-      "path": "pkcs11interop/3.3.0",
-      "files": [
-        "LICENSE.txt",
-        "NOTICE.txt",
-        "lib/monoandroid2.3/Pkcs11Interop.Android.dll",
-        "lib/monoandroid2.3/Pkcs11Interop.Android.xml",
-        "lib/net20/Pkcs11Interop.dll",
-        "lib/net20/Pkcs11Interop.xml",
-        "lib/net40/Pkcs11Interop.dll",
-        "lib/net40/Pkcs11Interop.xml",
-        "lib/net45/Pkcs11Interop.dll",
-        "lib/net45/Pkcs11Interop.xml",
-        "lib/netstandard1.3/Pkcs11Interop.DotNetCore.dll",
-        "lib/netstandard1.3/Pkcs11Interop.DotNetCore.xml",
-        "lib/sl5/Pkcs11Interop.Silverlight.dll",
-        "lib/sl5/Pkcs11Interop.Silverlight.xml",
-        "lib/xamarinios1.0/Pkcs11Interop.iOS.dll",
-        "lib/xamarinios1.0/Pkcs11Interop.iOS.xml",
-        "pkcs11interop.3.3.0.nupkg.sha512",
-        "pkcs11interop.nuspec"
       ]
     },
     "Remotion.Linq/2.1.1": {
@@ -10983,8 +10946,7 @@
       "Microsoft.Extensions.Logging.Debug >= 1.1.2",
       "Microsoft.NETCore.App >= 1.1.2",
       "Microsoft.VisualStudio.Web.BrowserLink >= 1.1.2",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 1.1.1",
-      "Pkcs11Interop >= 3.3.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 1.1.1"
     ]
   },
   "packageFolders": {
@@ -11035,10 +10997,6 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "1.1.1"
-          },
-          "Pkcs11Interop": {
-            "target": "Package",
-            "version": "3.3.0"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "suppressParent": "All",
