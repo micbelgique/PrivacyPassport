@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -12,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using NoSkillTeam_PrivacyPassport.Data;
 using NoSkillTeam_PrivacyPassport.Models;
 using NoSkillTeam_PrivacyPassport.Services;
+using NoSkillTeam_PrivacyPassport.Options;
 
 namespace NoSkillTeam_PrivacyPassport
 {
@@ -47,6 +45,8 @@ namespace NoSkillTeam_PrivacyPassport
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
             services.AddMvc();
 
             // Configure Identity
@@ -74,8 +74,10 @@ namespace NoSkillTeam_PrivacyPassport
 
 
             // Add application services.
-            services.AddTransient<IEmailSender, AuthMessageSender>();
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            services.Configure<SendGridOptions>(Configuration.GetSection("SendGrid"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
