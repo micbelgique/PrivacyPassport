@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSkillTeam-PrivacyPassport", "NoSkillTeam-PrivacyPassport\NoSkillTeam-PrivacyPassport.csproj", "{AC26283D-364B-4CFC-BB8D-98094915073F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSkillTeam_PrivacyPassport", "NoSkillTeam_PrivacyPassport\NoSkillTeam_PrivacyPassport.csproj", "{1F39BC88-5BE1-4CAF-A266-CB3F06A9D217}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AC26283D-364B-4CFC-BB8D-98094915073F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC26283D-364B-4CFC-BB8D-98094915073F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC26283D-364B-4CFC-BB8D-98094915073F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC26283D-364B-4CFC-BB8D-98094915073F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F39BC88-5BE1-4CAF-A266-CB3F06A9D217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F39BC88-5BE1-4CAF-A266-CB3F06A9D217}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F39BC88-5BE1-4CAF-A266-CB3F06A9D217}.Release|Any CPU.ActiveCfg = Release|Any CPU
