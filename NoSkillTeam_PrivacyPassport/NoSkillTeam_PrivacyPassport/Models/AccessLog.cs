@@ -19,6 +19,6 @@ namespace NoSkillTeam_PrivacyPassport.Models
 
         [ForeignKey("AccessorID")]
         public ApplicationUser Accessor { get; set; }
-        public Guid AccessorID { get; set; }
+        public string AccessorID { get; set; }
     }
 }

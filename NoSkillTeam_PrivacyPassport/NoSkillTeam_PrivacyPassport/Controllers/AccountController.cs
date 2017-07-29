@@ -72,8 +72,6 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
-                
-                user = await _userManager.FindByNameAsync(model.Email);
 
                 if (user != null && !user.EmailConfirmed)
                 {
