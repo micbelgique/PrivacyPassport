@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -47,11 +45,19 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(string returnUrl = null)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Dashboard", "Home");
+            }
+
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.Authentication.SignOutAsync(_externalCookieScheme);
 
-            ViewData["ReturnUrl"] = returnUrl;
-            return View();
+            // Create a LoginViewModel to include the returnUrl
+            var model = new LoginViewModel();
+            model.ReturnUrl = returnUrl;
+
+            return View(model);
         }
 
         //
@@ -61,26 +67,39 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
-            ViewData["ReturnUrl"] = returnUrl;
+            model.ReturnUrl = returnUrl;
+
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                
+                user = await _userManager.FindByNameAsync(model.Email);
+
+                if (user != null && !user.EmailConfirmed)
+                {
+                    return View("EmailNotConfirmed");
+                }
+
+                // Lockout increment activated
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: true);
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
                     return RedirectToLocal(returnUrl);
                 }
+
                 if (result.RequiresTwoFactor)
                 {
                     return RedirectToAction(nameof(SendCode), new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 }
+
                 if (result.IsLockedOut)
                 {
                     _logger.LogWarning(2, "User account locked out.");
                     return View("Lockout");
                 }
+
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
@@ -98,6 +117,12 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
+            // If user is authenticated, goes back to the Dashboard
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Dashboard", "Home");
+            }
+
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -109,6 +134,12 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
+            // If user is authenticated, goes back to the Dashboard
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Dashboard", "Home");
+            }
+
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
@@ -122,15 +153,52 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
                     var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
                     await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
                         $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
-                    await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("EmailNotConfirmed");
                 }
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult EmailNotConfirmed()
+        {
+            // If user is authenticated, goes back to the Dashboard
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Dashboard", "Home");
+            }
+
+            return View();
+        }
+
+        public async Task<ActionResult> SendEmailConfirmation(string email)
+        {
+            try
+            {
+                // Check if the mail does exist
+                var user = _userManager.FindByEmailAsync(email).Result;
+
+                if (!user.EmailConfirmed)
+                {
+                    // Generate the new token, send the mail
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                    await _emailSender.SendEmailAsync(email, "Confirm your account",
+                        $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+                    _logger.LogInformation(3, "User asked for a new account activation email.");
+                }
+            }
+
+            catch
+            {
+                return RedirectToAction("Dashboard", "Home");
+            }
+
+            return RedirectToAction("Dashboard", "Home");
         }
 
         //
@@ -141,7 +209,8 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation(4, "User logged out.");
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+
+            return RedirectToAction(nameof(HomeController.Dashboard), "Home");
         }
 
         //

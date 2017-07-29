@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Your account is not yet activated";
+}
+
+<h2>@ViewData["Title"].</h2>
+<div>
+    <p>
+        To activate your account, please <b>check your email</b> and use the <b>account activation link</b>.
+    </p>
+    <p>
+        <a href="" data-toggle="modal" data-target="#sendConfirmation">What email ?</a>
+    </p>
+</div>
+
+<!-- Modal -->
+<div id="sendConfirmation" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">What email ?</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Before you can login, you have to <b>confirm</b> that you own the email address you linked to your account. We sent you an email in which you can find your <b>account activation link</b>.
+                </p>
+                <p>
+                    It may take <b>up to 5 minutes</b> to receive your account activation email. If you can't find it, please <b>check your spam folder</b>, it may have dropped there.
+                </p>
+                <p>
+                    If you still can't find it, fill this field with your email, we will send you a new one.
+                </p>
+                <form asp-controller="Account" asp-action="SendEmailConfirmation" method="post" class="form-horizontal">
+                    <div class="form-inline text-center">
+                        <input type="email" name="email" class="form-control" id="input-email" placeholder="Email" />
+                        <button type="submit" class="btn btn-default">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
