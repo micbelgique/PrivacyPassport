@@ -10980,15 +10980,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lehtonen Miika\\.nuget\\packages\\": {}
+    "C:\\Users\\tef\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lehtonen Miika\\Source\\Repos\\DevCamp2017-NoSkill-Team\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport.csproj",
+      "projectUniqueName": "C:\\Users\\tef\\Source\\Repos\\DevCamp2017-NoSkill-Team\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport.csproj",
       "projectName": "NoSkillTeam_PrivacyPassport",
-      "projectPath": "C:\\Users\\Lehtonen Miika\\Source\\Repos\\DevCamp2017-NoSkill-Team\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport.csproj",
-      "outputPath": "C:\\Users\\Lehtonen Miika\\Source\\Repos\\DevCamp2017-NoSkill-Team\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport\\obj\\",
+      "projectPath": "C:\\Users\\tef\\Source\\Repos\\DevCamp2017-NoSkill-Team\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport.csproj",
+      "outputPath": "C:\\Users\\tef\\Source\\Repos\\DevCamp2017-NoSkill-Team\\NoSkillTeam_PrivacyPassport\\NoSkillTeam_PrivacyPassport\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
