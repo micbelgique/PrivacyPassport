@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 74px;
     padding-bottom: 20px;
 }
 
@@ -16,6 +16,22 @@ select,
 textarea {
     max-width: 280px;
 }
+.label {
+    font-size:12px;
+}
+.services-icons {
+    color:darkgrey;
+}
+.navbar {
+    height: 74px;
+    background-color:lightsteelblue;
+}
+
+.navbar-brand > img {
+    height: 46px;
+}
+
+
 
 /* Carousel */
 .carousel-caption p {

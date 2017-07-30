@@ -8,8 +8,18 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1>Page d'accueil</h1>
+<h1>Bienvenue</h1>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Privacy Passport est un service vous permetant de savoir qui consulte vos données privées et pour quels motifs.</p>
+        <a class="btn btn-default" asp-area="" asp-controller="Account" asp-action="Login">Connexion</a>
+        <a class="btn btn-default" asp-area="" asp-controller="Account" asp-action="Register">Créer un compte</a>
 
-<a asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+    </div>
+
+    <div class="col-lg-6">
+        <p>IMG</p>
+    </div>
+</div>
+
 <br />
-<a asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
