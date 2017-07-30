@@ -24,13 +24,16 @@ textarea {
 }
 .navbar {
     height: 74px;
-    background-color:lightsteelblue;
+    background-color:aliceblue;
+}
+
+.navbar li a:hover {
+    background-color:transparent;
 }
 
 .navbar-brand > img {
     height: 46px;
 }
-
 
 
 /* Carousel */
