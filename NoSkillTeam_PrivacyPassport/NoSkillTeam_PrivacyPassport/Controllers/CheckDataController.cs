@@ -18,10 +18,7 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
 
         public IActionResult Result()
         {
-            using (var db = new ApplicationDbContext())
-            {
 
-            }
             return View();
         }
     }

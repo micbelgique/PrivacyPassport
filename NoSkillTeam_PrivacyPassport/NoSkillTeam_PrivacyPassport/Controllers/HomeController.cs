@@ -25,8 +25,7 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
         {
             return View();
         }
-
-        [Authorize]
+        
         public IActionResult Services()
         {
             return View();
@@ -39,7 +38,7 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
                 return RedirectToAction("Dashboard");
             }
 
-            return View();
+            return RedirectToAction("Login", "Account");
         }
 
         public IActionResult Error()
