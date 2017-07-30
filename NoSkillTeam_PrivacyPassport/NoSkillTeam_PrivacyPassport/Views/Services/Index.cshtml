@@ -1,115 +1,94 @@
-
+﻿
 @{
     ViewData["Title"] = "Dashboard";
 }
 <div class="col-lg-12">
     <div>
-        <span class="pull-right">Activer toutes les notifications <i class="fa fa-bell fa-2x"></i></span>
-        <h2>Services disponibles</h2>
+
+        <span class="pull-right" style="color:;">
+            <label class="label-switch switch-primary">
+                <span class="lable"> Activer toutes les notifications</span>
+                <input type="checkbox" class="switch switch-bootstrap status" name="status" id="status" value="1">
+                <span class="lable"></span>
+            </label>
+        </span>
+
+        <h2>Mes donnees</h2>
     </div>
 </div>
-<div class="col-lg-6">
 
-    <div class="panel panel-default">
 
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-lg-2">
-                    <i class="fa fa-car fa-4x services-icons"></i>
-                </div>
 
-                <div class="col-lg-10">
-                    <span class="pull-right" style="color:green;">Notifications activees <i class="fa fa-bell fa"></i></span>
-                    <h4> <b>D.I.V.</b></h4>
-                    <p>Direction pour l'Immatriculation des Vehicules</p>
 
-                </div>
-            </div>
-        </div>
+<div class="col-lg-12">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                    <th>New</th>
+                    <th><i class="fa fa-bell fa"></i> Notifs</th>
 
-        <div class="panel-body">
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i class="fa fa-car fa"></td>
+                    <td>D.I.V.</td>
+                    <td>Direction pour l'Immatriculation des Vehicules</td>
+                    <td> <a class="btn btn-default"><i class="fa fa-eye fa"></i></a></td>
+                    <td><span class="label label-danger">2</span></td>
+                    <td>
+                        <label class="label-switch switch-primary">
+                            <input type="checkbox" class="switch switch-bootstrap status" name="status" id="status" value="1" checked="checked">
+                            <span class="lable"></span>
+                        </label>
+                    </td>
 
-            <div class="col-lg-12">
-                <p></p><a class="btn btn-default"><i class="fa fa-question-circle fa"></i> Qui accede a mes donnees ? </a> <a class="btn btn-default"><i class="fa fa-eye fa"></i> Consulter les donnees</a></p>
-            </div>
-        </div>
-        <div class="panel-footer">nouvelles consultations</div>
+                </tr>
+                <tr>
+                    <td><i class="fa fa-users fa"></td>
+                    <td>Population</td>
+                    <td>Direction pour l'Immatriculation des Vehicules</td>
+                    <td><a class="btn btn-default"><i class="fa fa-eye fa"></i></a></td>
+                    <td><span class="label label-default">0</span></td>
+                    <td>
+                        <label class="label-switch switch-primary">
+                            <input type="checkbox" class="switch switch-bootstrap status" name="status" id="status" value="1">
+                            <span class="lable"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="fa fa-euro fa"></td>
+                    <td>Finance</td>
+                    <td>Direction pour l'Immatriculation des Vehicules</td>
+                    <td> <a class="btn btn-default"><i class="fa fa-eye fa"></i></a></td>
+                    <td><span class="label label-default">0</span></td>
+                    <td>
+                        <label class="label-switch switch-primary">
+                            <input type="checkbox" class="switch switch-bootstrap status" name="status" id="status" value="1">
+                            <span class="lable"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="fa fa-euro fa"></td>
+                    <td>Justice</td>
+                    <td>Direction pour l'Immatriculation des Vehicules</td>
+                    <td><a class="btn btn-default"><i class="fa fa-eye fa"></i></a></td>
+                    <td><span class="label label-default">0</span></td>
+                    <td>
+                        <label class="label-switch switch-primary">
+                            <input type="checkbox" class="switch switch-bootstrap status" name="status" id="status" value="1">
+                            <span class="lable"></span>
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <span class="pull-right" style="color:red;">Notifications desactivees <i class="fa fa-bell fa"></i></span>
-            <h4><b>Justice</b></h4>
-        </div>
-        <div class="panel-body">
-            <div class="col-lg-2">
-                <i class="fa fa-car fa-4x services-icons"></i>
-            </div>
-            <div class="col-lg-10">
-                <p>Direction pour l'Immatriculation des Vehicules</p>
-                <p></p><a class="btn btn-default"><i class="fa fa-question-circle fa"></i> Qui accede a mes donnees ? </a></p>
-                <p><a class="btn btn-default"><i class="fa fa-eye fa"></i> Consulter les donnees</a></p>
-            </div>
-        </div>
-        <div class="panel-footer">Panel footer</div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <span class="pull-right" style="color:red;">Notifications desactivees <i class="fa fa-bell fa"></i></span>
-            <h4><b>Population</b></h4>
-        </div>
-        <div class="panel-body">
-            <div class="col-lg-2">
-                <i class="fa fa-car fa-4x services-icons"></i>
-            </div>
-            <div class="col-lg-10">
-                <p>Direction pour l'Immatriculation des Vehicules</p>
-                <p></p><a class="btn btn-default"><i class="fa fa-question-circle fa"></i> Qui accede a mes donnees ? </a></p>
-                <p><a class="btn btn-default"><i class="fa fa-eye fa"></i> Consulter les donnees</a></p>
-            </div>
-        </div>
-        <div class="panel-footer">Panel footer</div>
-    </div>
-
-</div>
-<div class="col-lg-6">
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <span class="pull-right" style="color:green;">Notifications activees <i class="fa fa-bell fa"></i></span>
-            <h4><b>Population</b></h4>
-        </div>
-        <div class="panel-body">
-            <div class="col-lg-2">
-                <i class="fa fa-users fa-4x services-icons"></i>
-            </div>
-            <div class="col-lg-10">
-                <p>Direction pour l'Immatriculation des Vehicules</p>
-                <p></p><a class="btn btn-default"><i class="fa fa-question-circle fa"></i> Qui accede a mes donnees ? </a></p>
-                <p><a class="btn btn-default"><i class="fa fa-eye fa"></i> Consulter les donnees</a></p>
-            </div>
-        </div>
-        <div class="panel-footer">Panel footer</div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <span class="pull-right" style="color:green;">Notifications activees <i class="fa fa-bell fa"></i></span>
-            <h4><b>Finance</b></h4>
-        </div>
-        <div class="panel-body">
-            <div class="col-lg-2">
-                <i class="fa fa-euro fa-4x services-icons"></i>
-            </div>
-            <div class="col-lg-10">
-                <p>Direction pour l'Immatriculation des Vehicules</p>
-                <p></p><a class="btn btn-default"><i class="fa fa-question-circle fa"></i> Qui accede a mes donnees ? </a></p>
-                <p><a class="btn btn-default"><i class="fa fa-eye fa"></i> Consulter les donnees</a></p>
-            </div>
-        </div>
-        <div class="panel-footer">Panel footer</div>
-    </div>
-
 </div>
