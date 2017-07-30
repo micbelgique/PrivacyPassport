@@ -26,6 +26,12 @@ namespace NoSkillTeam_PrivacyPassport.Controllers
             return View();
         }
 
+        [Authorize]
+        public IActionResult Services()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
